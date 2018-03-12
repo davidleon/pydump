@@ -23,8 +23,8 @@ if __name__ == '__main__':
     try:
         foo()
     except:
-        import pydump
+        from . import pydump
         filename = __file__ + '.dump'
-        print "Exception caught, writing %s" % filename
+        print("Exception caught, writing %s" % filename)
         pydump.save_dump(filename)
-        print "Run 'pydump %s' to debug" % (filename)
+        print("Run 'pydump %s' to debug" % (filename))
