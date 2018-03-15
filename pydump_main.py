@@ -5,7 +5,7 @@ import pydump
 import linecache
 from optparse import OptionParser
 
-if __name__ == '__main__':
+def main():
 
     parser = OptionParser(
         usage="%prog <filename.dump> [options]", description="pydump v%s: post-mortem debugging for Python programs" % pydump.__version__)
@@ -38,3 +38,7 @@ if __name__ == '__main__':
             else:
                 pydump.debug_dump(args[0])
             break
+
+			
+if __name__ == '__main__':
+    main()

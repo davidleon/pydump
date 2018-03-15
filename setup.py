@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+import platform
+
+from setuptools import setup, find_packages
 
 DESCRIPTION = """
 Pydump allows post-mortem debugging for Python programs.
@@ -28,9 +30,12 @@ setup(
     license='MIT',
     author_email='eli.finer@gmail.com',
     url='https://github.com/gooli/pydump',
-    package_dir={'pydump':'.'},
-    packages=['pydump'],
-    scripts=['pydump'],
+    packages=find_packages(),
+	entry_points={
+        'console_scripts': [
+            'pydump=pydump_main'
+        ]
+    },
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',
