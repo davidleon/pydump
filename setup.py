@@ -16,7 +16,8 @@ Works with the built-in pdb and with other popular debuggers
 
 # get version without importing
 __version__ = 'unknown'
-for line in open('pydump.py'):
+import os
+for line in open(os.path.join('pydump', 'pydump.py')):
     if line.startswith('__version__ = '):
         exec(line)
         break
@@ -31,9 +32,9 @@ setup(
     author_email='eli.finer@gmail.com',
     url='https://github.com/gooli/pydump',
     packages=find_packages(),
-	entry_points={
+        entry_points={
         'console_scripts': [
-            'pydump=pydump_main'
+            'pydump=pydump.pydump_main:main'
         ]
     },
     classifiers=[
